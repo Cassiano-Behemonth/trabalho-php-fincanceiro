@@ -1,5 +1,7 @@
 <?php
-include 'header.php';
+require_once 'configuracao.php';
+require_once 'autenticacao.php';
+require_once 'funcoes.php';
 
 if (isset($_GET['excluir'])) {
     $indice = intval($_GET['excluir']);
@@ -9,6 +11,8 @@ if (isset($_GET['excluir'])) {
     header("Location: historico.php");
     exit;
 }
+
+include 'header.php';
 
 $totalDespesas = calcularTotalDespesas($_SESSION['transacoes']);
 ?>

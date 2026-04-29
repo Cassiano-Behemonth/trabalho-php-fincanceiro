@@ -1,5 +1,7 @@
 <?php
-include 'header.php';
+require_once 'configuracao.php';
+require_once 'autenticacao.php';
+require_once 'funcoes.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = trim($_POST['nome'] ?? '');
@@ -16,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         array_push($_SESSION['transacoes'], $transacao);
     }
 }
+
+include 'header.php';
 
 $saldo = calcularSaldo($_SESSION['transacoes']);
 $totalReceitas = 0;
