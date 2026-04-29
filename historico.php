@@ -48,6 +48,7 @@ $totalDespesas = calcularTotalDespesas($_SESSION['transacoes']);
                         <th class="fw-semibold py-3">Descrição</th>
                         <th class="fw-semibold py-3">Categoria</th>
                         <th class="fw-semibold py-3 text-end">Valor</th>
+                        <th class="fw-semibold py-3 text-end">Relevância (%)</th>
                         <th class="fw-semibold py-3 text-center pe-4">Ações</th>
                     </tr>
                 </thead>
@@ -69,6 +70,16 @@ $totalDespesas = calcularTotalDespesas($_SESSION['transacoes']);
                                 <?php else: ?>
                                     <span class="text-danger">- <?php echo formatarMoeda($t['valor']); ?></span>
                                 <?php endif; ?>
+                            </td>
+                            <td class="text-end text-muted">
+                                <?php 
+                                if ($t['tipo'] === 'Despesa') {
+                                    $rel = calcularRelevancia($t['valor'], $totalDespesas);
+                                    echo number_format($rel, 1, ',', '.') . '%';
+                                } else {
+                                    echo '—';
+                                }
+                                ?>
                             </td>
                             <td class="text-center pe-4">
                                 <a href="historico.php?excluir=<?php echo $index; ?>" class="btn btn-sm btn-outline-danger rounded-circle" onclick="return confirm('Excluir esta transação?');" style="width: 30px; height: 30px; padding: 0; line-height: 30px;">
