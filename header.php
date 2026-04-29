@@ -118,8 +118,8 @@ require_once 'funcoes.php';
                         </a>
                     </li>
                     <li class="nav-item ms-lg-3">
-                        <a class="nav-link btn-sair" href="sair.php" id="nav-sair">
-                            <i class="bi bi-box-arrow-right"></i> Sair
+                        <a class="nav-link btn-sair" href="logout.php" id="nav-sair">
+                            <i class="bi bi-box-arrow-right"></i> Logout
                         </a>
                     </li>
                 </ul>
